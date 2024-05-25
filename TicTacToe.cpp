@@ -1,16 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <limits>
-#include <cstdlib> // für system("cls") bzw. system("clear")
+#include <cstdlib> // fÃ¼r system("cls") bzw. system("clear")
 
-//Buchstaben fürs Spiel
+//Buchstaben fÃ¼rs Spiel
 const char spieler = 'X';
 const char ai = 'O';
 const char leer = ' ';
 
 class TicTacToe {
 public:
-    TicTacToe() : board(3, std::vector<char>(3, ' ')) {} //Deklartion fürs board
+    TicTacToe() : board(3, std::vector<char>(3, ' ')) {} //Deklartion fÃ¼rs board
 
     void printBoard()
     {
@@ -33,7 +33,7 @@ public:
 
         if (reihe < 0 || reihe > 2 || zeile < 0 || zeile > 2 || board[reihe][zeile] != ' ')
         {
-            std::cout << " Fehler: Ungültiger Zug " << "\n";
+            std::cout << " Fehler: UngÃ¼ltiger Zug " << "\n";
             return false;
         }
 
@@ -52,7 +52,7 @@ public:
 
     char checkWin()
     {
-        // Überprüfen auf Reihen, Spalten und Diagonalen
+        // ÃœberprÃ¼fen auf Reihen, Spalten und Diagonalen
         for (int reihe = 0; reihe < 3; ++reihe) {
             if (board[reihe][0] == board[reihe][1] && board[reihe][1] == board[reihe][2] && board[reihe][0] != leer) {
                 return board[reihe][0];
@@ -76,7 +76,7 @@ public:
         return leer;
     }
 
-    void resetBoard() //zurücksetzen nach einem Spiel
+    void resetBoard() //zurÃ¼cksetzen nach einem Spiel
     {
         board = std::vector<std::vector<char>>(3, std::vector<char>(3, ' '));
     }
@@ -161,7 +161,7 @@ void clearScreen() {
 //windows
 #ifdef _WIN32
     std::system("cls");
-//Unix?
+//Unix
 #else
     std::system("clear");
 #endif
@@ -169,14 +169,14 @@ void clearScreen() {
 
 bool wantToPlay() {
     char choice;
-    std::cout << "Möchten Sie ein Spiel Tic-Tac-Toe spielen? (j/n): ";
+    std::cout << "MÃ¶chten Sie ein Spiel Tic-Tac-Toe spielen? (j/n): ";
     std::cin >> choice;
     return choice == 'j' || choice == 'J';
 }
 
 bool playAgainstAI() {
     char choice;
-    std::cout << "Möchten Sie gegen die KI spielen? (j/n): ";
+    std::cout << "MÃ¶chten Sie gegen die KI spielen? (j/n): ";
     std::cin >> choice;
     return choice == 'j' || choice == 'J';
 }
@@ -219,7 +219,7 @@ int main() {
                     currentPlayer = (currentPlayer == spieler) ? ai : spieler;
                 }
                 else {
-                    std::cout << "Ungültiger Zug. Bitte erneut versuchen.\n";
+                    std::cout << "UngÃ¼ltiger Zug. Bitte erneut versuchen.\n";
                 }
             }
             else {
@@ -244,6 +244,6 @@ int main() {
         }
     }
 
-    std::cout << "Vielen Dank fürs Spielen!\n";
+    std::cout << "Vielen Dank fÃ¼rs Spielen!\n";
     return 0;
 }
